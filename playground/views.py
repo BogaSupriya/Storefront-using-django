@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-def home(request):
-    return render(request, 'home.html',{'age':'23'})
+from django.template import loader
+def playground(request):
+    template = loader.get_template('home.html')
+    return HttpResponse(template.render())
 
 
 
